@@ -1,6 +1,8 @@
 # supervisor-frontend
 base https://github.com/PanJiaChen/vue-admin-template
-本项目可以和https://github.com/lizongying/supervisor-backend结合使用
+本项目可以和
+[supervisor-backend](https://github.com/lizongying/supervisor-backend)
+结合使用
 
 ## Build
 
