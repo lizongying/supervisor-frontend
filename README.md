@@ -1,5 +1,6 @@
 # supervisor-frontend
 base https://github.com/PanJiaChen/vue-admin-template
+
 本项目可以和
 [supervisor-backend](https://github.com/lizongying/supervisor-backend)
 结合使用
@@ -32,3 +33,5 @@ npm run lint -- --fix
 
 
 ## 注意！部署前一定要修改src/settings.js
+
+## 可以将dist所有文件放到supervisor-backend的assets文件夹下
