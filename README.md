@@ -34,4 +34,4 @@ npm run lint -- --fix
 
 ## 注意！部署前一定要修改src/settings.js
 
-## 可以将dist所有文件放到supervisor-backend的assets文件夹下
+## 可以直接生成或者将dist所有文件放到supervisor-backend的dist文件夹下
