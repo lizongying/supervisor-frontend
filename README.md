@@ -5,33 +5,16 @@ base https://github.com/PanJiaChen/vue-admin-template
 [supervisor-backend](https://github.com/lizongying/supervisor-backend)
 结合使用
 
-## Build
+## tips
+* vue.config.js //可以修改outputDir为supervisor-backend/dist
+* .env.production //如果单独部署，请修改VUE_APP_BASE_API
 
-```bash
-# build for test environment
-npm run build:stage
+## dev
+```
+npm run preview
+```
 
-# build for production environment
+## prod
+```
 npm run build:prod
 ```
-
-## Advanced
-
-```bash
-# preview the release environment effect
-npm run preview
-
-# preview the release environment effect + static resource analysis
-npm run preview -- --report
-
-# code format check
-npm run lint
-
-# code format check and auto fix
-npm run lint -- --fix
-```
-
-
-## 注意！部署前一定要修改src/settings.js
-
-## 可以直接生成或者将dist所有文件放到supervisor-backend的dist文件夹下

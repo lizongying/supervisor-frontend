@@ -64,8 +64,7 @@
 </template>
 
 <script>
-import { getList, start, status, stop, restart } from '@/api/supervisor'
-import defaultSettings from '@/settings'
+import { getConfig, getList, start, status, stop, restart } from '@/api/supervisor'
 
 export default {
   filters: {
@@ -88,8 +87,8 @@ export default {
       listLoading: true,
       rule: '.+',
       rules: new Set(['.+']),
-      server: defaultSettings.supervisorServerNameDefault,
-      servers: defaultSettings.supervisorServerNameList
+      server: '',
+      servers: []
     }
   },
   computed: {
@@ -118,9 +117,20 @@ export default {
     }
   },
   created() {
+    this.fetchConfig()
     this.fetchData()
   },
   methods: {
+    fetchConfig() {
+      this.listLoading = true
+      getConfig().then(response => {
+        this.servers = response.data.supervisorList.map((item, idx) => {
+          item = item.name
+          return item
+        })
+        this.listLoading = false
+      })
+    },
     fetchData() {
       this.listLoading = true
       const params = {}
@@ -205,8 +215,8 @@ export default {
       localStorage.rules = JSON.stringify(Array.from(this.rules))
       this.rule = '.+'
       localStorage.rule = this.rule
-      this.server = defaultSettings.supervisorServerNameDefault
-      localStorage.server = defaultSettings.supervisorServerNameList
+      this.server = this.servers[0]
+      localStorage.server = this.servers[0]
     }
   }
 }

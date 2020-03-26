@@ -14,7 +14,3 @@ tests/**/coverage/
 *.ntvs*
 *.njsproj
 *.sln
-
-
-src/settings.dev.js
-src/settings.prod.js
