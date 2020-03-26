@@ -18,3 +18,4 @@ npm run preview
 ```
 npm run build:prod
 ```
+![preview](https://github.com/lizongying/supervisor-frontend/raw/master/Screenshot.png)
