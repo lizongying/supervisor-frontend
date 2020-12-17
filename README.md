@@ -1,21 +1,30 @@
 # supervisor-frontend
+
 base https://github.com/PanJiaChen/vue-admin-template
+![preview](./Screenshot.png)
 
-本项目可以和
+## 【推荐】和supervisor-backend结合使用，
+
 [supervisor-backend](https://github.com/lizongying/supervisor-backend)
-结合使用
 
-## tips
-* vue.config.js //可以修改outputDir为supervisor-backend/dist
-* .env.production //如果单独部署，请修改VUE_APP_BASE_API
+### build
 
-## dev
-```
-npm run preview
-```
-
-## prod
 ```
 npm run build:prod
+
 ```
-![preview](./Screenshot.png)
+
+### 如单独部署
+
+* 修改.env.production
+
+```
+VUE_APP_BASE_API = '<host>'
+```
+
+* 修改vue.config.js
+
+```
+outputDir: 'dist',
+```
+

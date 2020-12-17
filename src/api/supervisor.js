@@ -39,6 +39,22 @@ export function start(params) {
   })
 }
 
+export function stdOut(params) {
+  return request({
+    url: '/api/supervisor/std_out',
+    method: 'post',
+    data: params
+  })
+}
+
+export function stdErr(params) {
+  return request({
+    url: '/api/supervisor/std_err',
+    method: 'post',
+    data: params
+  })
+}
+
 export function getConfig() {
   return request({
     url: '/api/supervisor/config',

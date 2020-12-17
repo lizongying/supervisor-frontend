@@ -57,6 +57,8 @@
           <el-tag :style="{visibility: scope.row.statename === STOPPED || scope.row.statename === BACKOFF ? 'visible' : 'hidden'}" class="operation" type="blue" @click="start(scope.row.idx)">START</el-tag>
           <el-tag :style="{visibility: scope.row.statename === RUNNING ? 'visible' : 'hidden'}" class="operation" type="blue" @click="stop(scope.row.idx)">STOP</el-tag>
           <el-tag class="operation" type="blue" @click="fresh(scope.row.idx)">FRESH</el-tag>
+          <el-tag class="operation" type="blue" @click="out(scope.row.idx)">OUT</el-tag>
+          <el-tag class="operation" type="blue" @click="err(scope.row.idx)">ERR</el-tag>
         </template>
       </el-table-column>
     </el-table>
@@ -64,7 +66,7 @@
 </template>
 
 <script>
-import { getConfig, getList, start, status, stop, restart } from '@/api/supervisor'
+import { getConfig, getList, start, status, stop, restart, stdOut, stdErr } from '@/api/supervisor'
 
 export default {
   filters: {
@@ -156,6 +158,36 @@ export default {
         this.$message(response.data.group + ' fresh!')
       })
     },
+    out(idx) {
+      this.listLoading = true
+      const params = {
+        server: this.server,
+        group: this.list[idx].group,
+        name: this.list[idx].name
+      }
+      stdOut(params).then(response => {
+        this.dialogTitle = this.list[idx].group
+        this.dialogTableVisible = true
+        this.dialogContent = response.data.log
+        this.listLoading = false
+        this.$message(response.data.group + ' ok!')
+      })
+    },
+    err(idx) {
+      this.listLoading = true
+      const params = {
+        server: this.server,
+        group: this.list[idx].group,
+        name: this.list[idx].name
+      }
+      stdErr(params).then(response => {
+        this.dialogTitle = this.list[idx].group
+        this.dialogTableVisible = true
+        this.dialogContent = response.data.log
+        this.listLoading = false
+        this.$message(response.data.group + ' ok!')
+      })
+    },
     stop(idx) {
       this.listLoading = true
       const params = {
@@ -222,10 +254,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .show-img {
-    max-height: 200px;
-    max-width: 200px;
-  }
   .operation {
     cursor: pointer;
   }
