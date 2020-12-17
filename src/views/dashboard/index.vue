@@ -34,29 +34,29 @@
           {{ scope.row.group }}
         </template>
       </el-table-column>
-      <el-table-column prop="start" sortable label="StartTime" width="200" align="center">
+      <el-table-column prop="start" sortable label="StartTime" width="190" align="center">
         <template slot-scope="scope">
           <i class="el-icon-time" />
           {{ formatDate(scope.row.start) }}
         </template>
       </el-table-column>
-      <el-table-column prop="stop" sortable label="StopTime" width="200" align="center">
+      <el-table-column prop="stop" sortable label="StopTime" width="190" align="center">
         <template slot-scope="scope">
           <i class="el-icon-time" />
           {{ formatDate(scope.row.stop) }}
         </template>
       </el-table-column>
-      <el-table-column prop="statename" sortable label="State" width="200" align="center">
+      <el-table-column prop="statename" sortable label="State" width="120" align="center">
         <template slot-scope="scope">
           <el-tag :type="scope.row.statename | statusFilter">{{ scope.row.statename }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="Operation" width="200" align="center" fixed="right">
+      <el-table-column label="Operation" width="400" align="center" fixed="right">
         <template slot-scope="scope">
-          <el-tag v-show="scope.row.statename === RUNNING" class="operation" type="blue" @click="restart(scope.row.idx)">restart</el-tag>
-          <el-tag v-show="scope.row.statename === STOPPED" class="operation" type="blue" @click="start(scope.row.idx)">start</el-tag>
-          <el-tag v-show="scope.row.statename === RUNNING" class="operation" type="blue" @click="stop(scope.row.idx)">stop</el-tag>
-          <el-tag class="operation" type="blue" @click="fresh(scope.row.idx)">fresh</el-tag>
+          <el-tag :style="{visibility: scope.row.statename === RUNNING ? 'visible' : 'hidden'}" class="operation" type="blue" @click="restart(scope.row.idx)">RESTART</el-tag>
+          <el-tag :style="{visibility: scope.row.statename === STOPPED || scope.row.statename === BACKOFF ? 'visible' : 'hidden'}" class="operation" type="blue" @click="start(scope.row.idx)">START</el-tag>
+          <el-tag :style="{visibility: scope.row.statename === RUNNING ? 'visible' : 'hidden'}" class="operation" type="blue" @click="stop(scope.row.idx)">STOP</el-tag>
+          <el-tag class="operation" type="blue" @click="fresh(scope.row.idx)">FRESH</el-tag>
         </template>
       </el-table-column>
     </el-table>
