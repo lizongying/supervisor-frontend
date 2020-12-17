@@ -200,7 +200,7 @@ export default {
     },
     formatDate: function(v) {
       v = parseInt(v) * 1000
-      return (new Date(v)).toLocaleString()
+      return (new Date(v)).toISOString().substring(0, 19).replace(/T/, ' ')
     },
     onSave: function() {
       this.rules.add(this.rule)
