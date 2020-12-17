@@ -15,6 +15,20 @@
         <el-button @click="onDelete">Delete filter</el-button>
       </el-form-item>
     </el-form>
+    <el-dialog
+      :title="dialogTitle"
+      :visible="dialogTableVisible"
+      :modal-append-to-body="false"
+      :show-close="true"
+      :before-close="dialogCancel"
+    >
+      <pre style="white-space: pre-wrap; word-wrap: break-word; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+        {{ dialogContent }}
+      </pre>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogCancel">Cancel</el-button>
+      </div>
+    </el-dialog>
     <el-table
       v-loading="listLoading"
       :data="listFitler"
@@ -85,12 +99,16 @@ export default {
     return {
       RUNNING: 'RUNNING',
       STOPPED: 'STOPPED',
+      BACKOFF: 'BACKOFF',
       list: null,
       listLoading: true,
       rule: '.+',
       rules: new Set(['.+']),
       server: '',
-      servers: []
+      servers: [],
+      dialogTableVisible: false,
+      dialogTitle: '',
+      dialogContent: ''
     }
   },
   computed: {
@@ -170,7 +188,7 @@ export default {
         this.dialogTableVisible = true
         this.dialogContent = response.data.log
         this.listLoading = false
-        this.$message(response.data.group + ' ok!')
+        this.$message(this.list[idx].group + ' ok!')
       })
     },
     err(idx) {
@@ -185,7 +203,7 @@ export default {
         this.dialogTableVisible = true
         this.dialogContent = response.data.log
         this.listLoading = false
-        this.$message(response.data.group + ' ok!')
+        this.$message(this.list[idx].group + ' ok!')
       })
     },
     stop(idx) {
@@ -249,6 +267,9 @@ export default {
       localStorage.rule = this.rule
       this.server = this.servers[0]
       localStorage.server = this.servers[0]
+    },
+    dialogCancel: function() {
+      this.dialogTableVisible = false
     }
   }
 }
