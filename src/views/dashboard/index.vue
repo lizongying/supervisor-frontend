@@ -173,7 +173,7 @@ export default {
         response.data.idx = idx
         this.$set(this.list, idx, response.data)
         this.listLoading = false
-        this.$message(response.data.group + ' fresh!')
+        this.$message(this.list[idx].group + ' fresh!')
       })
     },
     out(idx) {
@@ -217,7 +217,7 @@ export default {
         response.data.idx = idx
         this.$set(this.list, idx, response.data)
         this.listLoading = false
-        this.$message(response.data.group + ' stopped!')
+        this.$message(this.list[idx].group + ' stopped!')
       })
     },
     start(idx) {
@@ -231,7 +231,7 @@ export default {
         response.data.idx = idx
         this.$set(this.list, idx, response.data)
         this.listLoading = false
-        this.$message(response.data.group + ' started!')
+        this.$message(this.list[idx].group + ' started!')
       })
     },
     restart(idx) {
@@ -245,7 +245,7 @@ export default {
         response.data.idx = idx
         this.$set(this.list, idx, response.data)
         this.listLoading = false
-        this.$message(response.data.group + ' restarted!')
+        this.$message(this.list[idx].group + ' restarted!')
       })
     },
     formatDate: function(v) {
