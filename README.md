@@ -1,7 +1,7 @@
 # supervisor-frontend
 
-base https://github.com/PanJiaChen/vue-admin-template
 ![preview](./Screenshot.png)
+base on https://github.com/PanJiaChen/vue-admin-template
 
 ## 【推荐】和supervisor-backend结合使用，
 
@@ -14,7 +14,7 @@ npm run build:prod
 
 ```
 
-### 如单独部署
+## 如单独部署
 
 * 修改.env.production
 
