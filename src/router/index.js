@@ -44,12 +44,12 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/supervisor',
     children: [{
-      path: 'dashboard',
+      path: 'supervisor',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: 'Supervisor', icon: 'dashboard' }
     }]
   },
   { path: '*', redirect: '/404', hidden: true }

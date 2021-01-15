@@ -1,8 +1,8 @@
 {
-  "name": "vue-admin-template",
-  "version": "4.2.1",
-  "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
-  "author": "Pan <panfree23@gmail.com>",
+  "name": "supervisor-frontend",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -15,14 +15,14 @@
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
   },
   "dependencies": {
-    "axios": "0.18.1",
+    "axios": "^0.21.1",
     "element-ui": "2.7.2",
     "js-cookie": "2.2.0",
     "node-sass": "^5.0.0",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
     "path-to-regexp": "2.4.0",
-    "sass-loader": "^10.1.0",
+    "sass-loader": "^10.1.1",
     "vue": "2.6.10",
     "vue-router": "3.0.6",
     "vuex": "3.1.0"
@@ -32,13 +32,13 @@
     "@babel/register": "7.0.0",
     "@vue/cli-plugin-babel": "3.6.0",
     "@vue/cli-plugin-eslint": "^3.9.1",
-    "@vue/cli-plugin-unit-jest": "3.6.3",
-    "@vue/cli-service": "3.6.0",
+    "@vue/cli-plugin-unit-jest": "^4.5.10",
+    "@vue/cli-service": "^4.5.10",
     "@vue/test-utils": "1.0.0-beta.29",
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.8.6",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
-    "babel-jest": "23.6.0",
+    "babel-jest": "^26.6.3",
     "chalk": "2.4.2",
     "connect": "3.6.6",
     "eslint": "5.15.3",
@@ -60,5 +60,13 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lizongying/supervisor-frontend.git"
+  }
 }
